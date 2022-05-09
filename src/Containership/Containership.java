@@ -34,13 +34,13 @@ public class Containership{
 
         container = this.storage.remove(0);
         if(container.getAnInt() == 2){
-            System.out.println("Container " + container.getId() + " : disconnecting from heating system for transfer");
+            System.out.println("Container " + container.getId() + ": disconnecting from heating system for transfer");
         }
         else if( container.getAnInt() == 3){
-            System.out.println("Container " + container.getId() + " : disconnecting from cooling system for transfer");
+            System.out.println("Container " + container.getId() + ": disconnecting from cooling system for transfer");
         }
         else if(container.getAnInt() == 1){
-            System.out.println("Container " + container.getId() + " : standard container for transfer");
+            System.out.println("Container " + container.getId() + ": standard container for transfer");
         }
         System.out.println("Ship: Container " + container.getId() + " is available for pickup");
         return container;

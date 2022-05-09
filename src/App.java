@@ -5,6 +5,7 @@ import Container.*;
 import Containership.Containership;
 import Crane.Crane;
 import Dock.Dock;
+import Test.Test;
 import Truck.Truck;
 
 import java.util.Random;
@@ -30,15 +31,16 @@ public class App{
         Truck truck2 = new Truck("Truck 2", ship, dock);
         Truck truck3 = new Truck("Truck 3", ship, dock);
 
+        Test test = new Test("Test", ship, dock);
+
         crane1.start();
-//        crane2.start();
+        crane2.start();
 
         truck1.start();
-//        truck2.start();
-//        truck3.start();
-
-//        truck1.printTruck();
+        truck2.start();
+        truck3.start();
 
 
+//        test.start();
     }
 }
