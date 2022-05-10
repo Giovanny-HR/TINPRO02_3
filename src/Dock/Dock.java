@@ -1,3 +1,9 @@
+/*
+If there are no containers, then it will wait for a container to be placed on the dock and notify all when it has been removed.
+Code starts by checking if the dock is empty, if it is not then wait() will be called until it is.
+If an interrupted exception occurs with method getContainer(), then InterruptedException e will be called and the program will print its value
+ */
+
 package Dock;
 import Container.Container;
 
@@ -12,9 +18,8 @@ public class Dock {
     }
 
     public synchronized void addContainer(Container container) {
-//        System.out.println("Test-1 Adding Container");// Test
 
-        while (this.storage.size() == this.maxContainer){
+        while (this.storage.size() == this.maxContainer){ //  Check for Max Capacity
             try{
                 wait();
             }catch(InterruptedException e){
@@ -22,9 +27,7 @@ public class Dock {
             }
         }
         storage.add(container);
-//        System.out.println("Test-2 Adding Container");// Test
-//        System.out.println(this.storage.size());// Test
-        notifyAll();
+        notifyAll(); // Notify All tasks
 
         System.out.println("Dock: received container " + container.getId());
 
@@ -39,8 +42,6 @@ public class Dock {
 
     public synchronized Container removeContainer() {
         Container container;
-//        System.out.println("Test-1 remove Container"); // Test
-//        System.out.println("Dock: amount container left " + amountLeft());// Test
 
         //if dock is empty wait
         while (this.storage.size() == 0) {
@@ -50,14 +51,10 @@ public class Dock {
                 System.out.println("Interrupted Exception occurred with method getContainer");
             }
         }
-//        System.out.println("Test-2 remove Container"); // Test
-        notifyAll();
+        notifyAll(); //notify all objects
 
         //If dock has containers notify the trucks
         container = this.storage.remove(0);
-//        notifyAll();
-
-//        System.out.println("Test-3 Notified Truck"); // Test
 
         System.out.println("Dock: given container " + container.getId());
         return container;

@@ -1,3 +1,9 @@
+/*
+ Instance of Container stores information about what type of container truck is carrying
+ dock - A Dock variable that will be used to store the dock where this truck is currently docked.
+ ship - A Containership variable that will be used to store the ship that is currently being shipped.
+
+ */
 package Truck;
 
 import Container.*;
@@ -13,10 +19,9 @@ public class Truck extends Thread{
     Containership ship;
     Container container;
     Dock dock;
-    Heat heat;
-    Cool cool;
 
     public Truck(String name, Containership ship, Dock dock){
+        //To store information
         this.name = name;
         this.ship = ship;
         this.dock = dock;
@@ -24,13 +29,13 @@ public class Truck extends Thread{
 
     public void run(){
         //As long as there are containers left keep on shipping
-//        System.out.println("Truck Starts Running"); //Test
-        while(ship.amountLeft() > 0 ||  dock.amountLeft() > 0 ){ // While ship > 0 OR dock amount containers left > 0 do this...  || dock.amoutLeft() >= 0
-//            System.out.println(this.name +  ": is waiting on a container");
+        while(ship.amountLeft() > 0 ||  dock.amountLeft() > 0 ){ // While ship > 0 OR dock amount containers left > 0 do this...
+            System.out.println(this.name +  ": is waiting on a container");
 
-            //take container from dock
+            //Take container from dock
+            //Removes one of the 3 possible containers from dock and assigns it to variable container
             container = dock.removeContainer();
-
+            //Take container from dock if the container has an integer value of ....
             if(container.getAnInt() == 2){
                 System.out.println(this.name + " received container " + container.getId() + " and is attaching heated system"); //this.name + "received container " + container.getId() + " and is attaching heated system"
             }
@@ -43,7 +48,7 @@ public class Truck extends Thread{
             else{
                 System.out.println("No Container Found"); //Test
             }
-            //Simmulated shipping delay with 3-7 seconds
+            //Simulated shipping delay with 3-7 seconds
 //            int delay = rand.nextInt(4000) + 3500;
             int delay = rand.nextInt(6000) + 1000;
             try{
@@ -62,7 +67,6 @@ public class Truck extends Thread{
                 continue;
             }
         }
-//        System.out.println("Containers not found!!"); //Test
         dock.printContainerList();
     }
 

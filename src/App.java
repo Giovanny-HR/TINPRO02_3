@@ -19,9 +19,11 @@ public class App{
         //Make ship and load it with containers of random type
         Containership ship = new Containership(10);
         for(int i = 0 ; i < ship.getMaxContainer(); i++){
-            type = rand.nextInt(3) + 1; // + 1 Because it begins with 0
+            type = rand.nextInt(3) + 1; // Generate a random integer number between 0 & 3
+            //Each time it generates a new container type, it creates another instance of Container using this values as its constructor parameter (i) and assigns it to the Ship object addContainer method call..
             ship.addContainer(new Container(i, type));
         }
+        //Objects
         Dock dock = new Dock(5);
 
         Crane crane1 = new Crane("Crane 1" , ship, dock);
@@ -39,7 +41,6 @@ public class App{
         truck1.start();
         truck2.start();
         truck3.start();
-
 
 //        test.start();
     }

@@ -13,6 +13,7 @@ public class Crane extends Thread {
     Dock dock;
     Container container;
 
+        //Constructor
     public Crane(String name, Containership ship, Dock dock){
         this.name = name;
         this.ship = ship;
@@ -39,6 +40,6 @@ public class Crane extends Thread {
             dock.addContainer(container);
             System.out.println(this.name + ": has complete it's transfer of container " + container.getId());
         }
-        ship.printContainerList();
+        ship.printContainerList();//Print out list of containers on board after transfer is complete
     }
 }

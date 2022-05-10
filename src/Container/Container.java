@@ -1,3 +1,7 @@
+/*
+Create a container class that has 2 properties.
+ */
+
 package Container;
 
 public class Container {
@@ -10,12 +14,15 @@ public class Container {
         this.anInt = anInt;
     }
 
+    //returns the value of the id variable.
     public int getId(){
         return id;
     }
+    //returns the value of the anInt variable
     public int getAnInt(){
         return anInt;
     }
+    //Returns the value of the getType variable
     public String getType(){
         return typeContainer;
     }
