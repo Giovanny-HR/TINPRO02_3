@@ -2,7 +2,7 @@
 Code will not run until all the containers have been added to the list
  */
 
-package Containership;
+package Ship;
 
 import Container.Container;
 
@@ -22,6 +22,12 @@ public class Containership{
         storage.add(container);//Add a container to the ArrayList storage
         System.out.println("Ship: added " + container.getType() + " container " + container.getId());
     }
+    //------------------------------------------
+    public void addOther(Container container){
+        storage.add(container);
+        System.out.println("Other has been added.");
+    }
+    //------------------------------------------
 
     // Remove container from Ship(Containership)
     public synchronized Container removeContainer(){

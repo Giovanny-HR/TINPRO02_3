@@ -7,7 +7,7 @@
 package Truck;
 
 import Container.*;
-import Containership.Containership;
+import Ship.Containership;
 import Dock.Dock;
 
 import java.util.Objects;
@@ -36,6 +36,7 @@ public class Truck extends Thread{
             //Removes one of the 3 possible containers from dock and assigns it to variable container
             container = dock.removeContainer();
             //Take container from dock if the container has an integer value of ....
+            //if(heat.getType() == "Heat"){}
             if(container.getAnInt() == 2){
                 System.out.println(this.name + " received container " + container.getId() + " and is attaching heated system"); //this.name + "received container " + container.getId() + " and is attaching heated system"
             }
@@ -61,6 +62,7 @@ public class Truck extends Thread{
             System.out.println(this.name + ": is waiting on a container");
 
             if(ship.amountLeft() == 0 && dock.amountLeft() == 0){
+                System.out.println("Job Done - No Containers Left!");
                 break;
             }
             else{

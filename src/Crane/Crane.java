@@ -1,7 +1,7 @@
 package Crane;
 
 import Container.Container;
-import Containership.Containership;
+import Ship.Containership;
 import Dock.Dock;
 
 import java.util.Random;

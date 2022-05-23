@@ -12,4 +12,8 @@ public class Cool extends Container {
     public String getType(){
         return  typeContainer;
     }
+
+    public int getAnInt(){
+        return anInt;
+    }
 }

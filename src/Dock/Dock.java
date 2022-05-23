@@ -21,7 +21,7 @@ public class Dock {
 
         while (this.storage.size() == this.maxContainer){ //  Check for Max Capacity
             try{
-                wait();
+                wait();// wait until a space is available
             }catch(InterruptedException e){
                 System.out.println("Interrupted Exception occurred with method addContainer");
             }
@@ -46,7 +46,7 @@ public class Dock {
         //if dock is empty wait
         while (this.storage.size() == 0) {
             try {
-                wait();
+                wait(); //Wait until ...
             } catch (InterruptedException e) {
                 System.out.println("Interrupted Exception occurred with method getContainer");
             }
